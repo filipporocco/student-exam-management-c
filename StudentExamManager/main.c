@@ -6,9 +6,9 @@ int main() {
 	Esame* esami = NULL;
 	StatCorso* stats = NULL;
 	int dim_e = 0, dim_s = 0, n;
-	char file_studenti[MAX_CHAR_FILE_NAME] = "studenti.txt", file_esami[MAX_CHAR_FILE_NAME] = "esami.txt", username[MAX_CHAR_USERNAME] = "Fylo";
+	char file_studenti[MAX_CHAR_FILE_NAME], file_esami[MAX_CHAR_FILE_NAME], username[MAX_CHAR_USERNAME];
 
-	/*welcome(file_studenti, file_esami, username); */
+	welcome(file_studenti, file_esami, username);
 
 	// ============ Lettura di studenti e di esami da file .txt ============
 	studenti = leggi_studenti(file_studenti);
