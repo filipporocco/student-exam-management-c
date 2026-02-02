@@ -12,6 +12,8 @@ void welcome(char* file_studenti, char *file_esami, char* username) {
 	scanf_s("%s%*c", file_studenti, MAX_CHAR_FILE_NAME);
 	printf("Enter the name of the text file containing the exams: ");
 	scanf_s("%s%*c", file_esami, MAX_CHAR_FILE_NAME);
+
+	printf("\n\n");
 }
 
 int readField(char buffer[], char sep, FILE* fp) {
