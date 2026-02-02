@@ -1,0 +1,105 @@
+Analisi Matematica T-1@23 1001 9
+Fondamenti di Informatica T@30 1001 12
+Geometria e Algebra T@27 1001 6
+
+Analisi Matematica T-1@24 1002 9
+Fondamenti di Informatica T@28 1002 12
+Geometria e Algebra T@26 1002 6
+Analisi Matematica T-2@25 1002 6
+Reti Logiche T@27 1002 6
+
+Analisi Matematica T-1@30 1003 9
+Fondamenti di Informatica T@29 1003 12
+Geometria e Algebra T@27 1003 6
+Analisi Matematica T-2@26 1003 6
+Reti Logiche T@28 1003 6
+
+Sistemi Software a Oggetti T@27 1004 12
+Architetture dei Calcolatori@25 1004 6
+Basi di Dati@26 1004 9
+Fisica Generale@24 1004 9
+Matematica Applicata@25 1004 6
+
+Sistemi Operativi@28 1005 9
+Economia e Organizzazione Aziendale@30 1005 6
+Elettrotecnica@27 1005 6
+Fondamenti di Telecomunicazioni@29 1005 9
+Controlli Automatici@28 1005 9
+
+Elettronica@26 1006 6
+Reti di Calcolatori@27 1006 9
+Tecnologie Web@28 1006 9
+Ingegneria del Software@29 1006 9
+Basi di Dati@26 1006 9
+
+Analisi Matematica T-1@23 1007 9
+Fondamenti di Informatica T@24 1007 12
+Geometria e Algebra T@22 1007 6
+Analisi Matematica T-2@23 1007 6
+Reti Logiche T@25 1007 6
+
+Sistemi Operativi@28 1008 9
+Tecnologie Web@29 1008 9
+Ingegneria del Software@27 1008 9
+Basi di Dati@26 1008 9
+Architetture dei Calcolatori@25 1008 6
+
+Fisica Generale@30 1009 9
+Matematica Applicata@29 1009 6
+Fondamenti di Telecomunicazioni@28 1009 9
+Controlli Automatici@27 1009 9
+Elettronica@26 1009 6
+
+Reti di Calcolatori@25 1010 9
+Tecnologie Web@26 1010 9
+Ingegneria del Software@27 1010 9
+Basi di Dati@24 1010 9
+Architetture dei Calcolatori@23 1010 6
+
+Analisi Matematica T-1@28 1011 9
+Fondamenti di Informatica T@27 1011 12
+Geometria e Algebra T@26 1011 6
+Analisi Matematica T-2@25 1011 6
+Reti Logiche T@24 1011 6
+
+Sistemi Software a Oggetti T@30 1012 12
+Architetture dei Calcolatori@28 1012 6
+Basi di Dati@27 1012 9
+Fisica Generale@26 1012 9
+Matematica Applicata@25 1012 6
+
+Sistemi Operativi@29 1013 9
+Economia e Organizzazione Aziendale@28 1013 6
+Elettrotecnica@27 1013 6
+Fondamenti di Telecomunicazioni@29 1013 9
+Controlli Automatici@28 1013 9
+
+Elettronica@26 1014 6
+Reti di Calcolatori@27 1014 9
+Tecnologie Web@28 1014 9
+Ingegneria del Software@27 1014 9
+Basi di Dati@26 1014 9
+
+Analisi Matematica T-1@24 1015 9
+Fondamenti di Informatica T@25 1015 12
+Geometria e Algebra T@23 1015 6
+Analisi Matematica T-2@24 1015 6
+Reti Logiche T@25 1015 6
+
+Sistemi Operativi@28 1016 9
+Tecnologie Web@29 1016 9
+Ingegneria del Software@28 1016 9
+Basi di Dati@27 1016 9
+Architetture dei Calcolatori@26 1016 6
+
+Fisica Generale@27 1017 9
+Matematica Applicata@26 1017 6
+Fondamenti di Telecomunicazioni@27 1017 9
+Controlli Automatici@26 1017 9
+Elettronica@25 1017 6
+
+Reti di Calcolatori@28 1018 9
+Tecnologie Web@27 1018 9
+Ingegneria del Software@28 1018 9
+Basi di Dati@27 1018 9
+Architetture dei Calcolatori@26 1018 6

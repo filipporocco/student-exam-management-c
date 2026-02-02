@@ -1,0 +1,30 @@
+1001 Filippo@Zanetti@0 0.0
+1002 Alberto@Rossi@60 26.50
+1003 Marco@Bianchi@72 27.25
+1004 Sara@Verdi@48 25.75
+1005 Anna Maria@Ferrari@84 28.10
+1006 Giulia@Romano@66 26.90
+1007 Matteo@Conti@54 24.80
+1008 Elena@Galli@78 27.60
+1009 Davide@Moretti@90 28.30
+1010 Chiara@De Angelis@60 26.10
+1011 Simone@Ricci@72 27.00
+1012 Federica@Marini@48 25.40
+1013 Andrea@Greco@84 28.00
+1014 Valentina@Lombardi@66 26.70
+1015 Paolo@Barbieri@54 24.90
+1016 Francesca@Fontana@78 27.50
+1017 Alberto@Rinaldi@60 26.20
+1018 Martina@Serra@72 27.10
+1019 Nicola@Costa@48 25.60
+1020 Laura@Fabbri@84 28.20
+1021 Stefano@Villa@66 26.80
+1022 Irene@Caruso@54 24.70
+1023 Giorgio@Colombo@78 27.40
+1024 Beatrice@Mancini@60 26.00
+1025 Tommaso@Giordano@72 27.30
+1026 Alice@Longo@48 25.20
+1027 Roberto@Leone@84 28.00
+1028 Silvia@Santoro@66 26.60
+1029 Enrico@Pellegrini@54 24.60
+1030 Camilla@Testa@78 27.45

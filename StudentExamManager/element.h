@@ -6,9 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_CHAR_FILE_NAME 33
+
 //Studente
-#define MAX_CHAR_NOME 65
-#define MAX_CHAR_COGNOME 65
+#define MAX_CHAR_NOME 33
+#define MAX_CHAR_COGNOME 33
 
 //Esame & StatCorso
 #define MAX_CHAR_CORSO 51

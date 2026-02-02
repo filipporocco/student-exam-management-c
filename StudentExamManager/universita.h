@@ -5,11 +5,14 @@
 
 #include "list.h"
 
+void welcome(char* file_studenti, char* file_esami);
+
 int readField(char buffer[], char sep, FILE* fp);
 
 // ============ Lettura di studenti da file .txt ============
 Studente leggi_uno_studente(FILE* fp);
 list leggi_studenti(char* fileName);
+void showListStudenti(list l);
 
 // ============ Lettura di esami da file .txt ============
 Esame leggi_un_esame(FILE* fp);
@@ -27,11 +30,24 @@ list mergeSortList(list l);
 
 // ============ Ordinamento array di esami ============
 int compare_esame(Esame e1, Esame e2);
-void merge(Esame v[], int i1, int i2, int fine, Esame vuoto[]);
-void mergeSort(Esame v[], int first, int last, Esame vuoto[]);
+void mergeArrayEsame(Esame v[], int i1, int i2, int fine, Esame vuoto[]);
+void mergeSortArrayEsame(Esame v[], int first, int last, Esame vuoto[]);
 void ordina_esami(Esame* esami, int dim);
 
 // ============ Statistiche per ogni corso ============
 StatCorso* statistiche_corsi(Esame* esami, int dim, int* dimStat);
+void printArrayStatCorsi(StatCorso v[], int dimLogica);
+
+// ============ Ordinamento array di statistiche corsi ============
+int compare_corso(StatCorso s1, StatCorso s2);
+void mergeArrayStats(StatCorso v[], int i1, int i2, int fine, StatCorso vuoto[]);
+void mergeSortArrayStats(StatCorso v[], int first, int last, StatCorso vuoto[]);
+void ordina_statistiche(StatCorso* stats, int dim);
+
+//============ Scrittura in file binario di studenti ============
+void write_bin_studenti(list studenti);
+
+//============ Scrittura in file binario di statistiche dei corsi ============
+void write_bin_corsi(StatCorso* stats, int dim);
 
 #endif

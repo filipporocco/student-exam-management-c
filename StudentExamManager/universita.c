@@ -1,6 +1,16 @@
 #include "universita.h"
 #include <string.h>
 
+void welcome(char* file_studenti, char *file_esami) {
+
+	printf("Welcome to the Student and Exam Management program!\n\n");
+
+	printf("Enter the name of the text file containing the students: ");
+	scanf_s("%s%*c", file_studenti, MAX_CHAR_FILE_NAME);
+	printf("Enter the name of the text file containing the exams: ");
+	scanf_s("%s%*c", file_esami, MAX_CHAR_FILE_NAME);
+}
+
 int readField(char buffer[], char sep, FILE* fp) {
 
 	int i = 0;
@@ -89,15 +99,15 @@ Studente leggi_uno_studente(FILE* fp) {
 	return s;
 }
 
-list leggi_studenti(char* fileName) {
+list leggi_studenti(char* file_studenti) {
 
 	FILE* fp;
 	list studenti = emptyList();
 	Studente temp;
 
-	if (fopen_s(&fp, fileName, "r") != 0) {
+	if (fopen_s(&fp, file_studenti, "r") != 0) {
 
-		printf("Errore in apertura del file \"%s\"\n", fileName);
+		printf("\nError opening file \"%s\"\n", file_studenti);
 		return emptyList();
 	}
 
@@ -114,6 +124,35 @@ list leggi_studenti(char* fileName) {
 
 	fclose(fp);
 	return studenti;
+}
+
+void showListStudenti(list l) {
+
+	int cont = 0;
+	element el;
+
+	printf("\n----------------------------------------------------------------------------------------------------------\n");
+	printf("%-5s | %-32s | %-32s | %-5s | %-5s\n", "ID", "Name", "Surname", "CFU", "Weighted average");
+	printf("----------------------------------------------------------------------------------------------------------\n");
+
+	while (!empty(l)) {
+
+		el = head(l);
+
+		printf("%-5d | %-32s | %-32s | %-5d | %-5.2f\n", el.matricola, el.nome, el.cognome, el.cfu, el.media);
+		l = tail(l);
+
+		cont++;
+	}
+
+	if (cont == 0) {
+
+		printf("\nEmpty list!\n");
+	}
+	else {
+
+		printf("---------------------------------------------------------------------------------------------------------\n\n");
+	}
 }
 
 // ============ Lettura di esami da file .txt ============
@@ -168,7 +207,7 @@ Esame* leggi_esami(char* fileName, int* dim) {
 
 	if (fopen_s(&fp, fileName, "r") != 0) {
 
-		printf("Errore in apertura del file \"%s\"!\n", fileName);
+		printf("\nError opening file \"%s\"\n", fileName);
 		return NULL;
 	}
 
@@ -185,7 +224,7 @@ Esame* leggi_esami(char* fileName, int* dim) {
 
 	if ((esami = (Esame*)malloc(sizeof(Esame) * (*dim))) == NULL) {
 
-		printf("Allocation Error!\n");
+		printf("\nAllocation Error!\n");
 		fclose(fp);
 		return NULL;
 	}
@@ -290,6 +329,7 @@ list mergeList(list l1, list l2) {
 
 		return l2;
 	}
+	
 	if (empty(l2)) {
 
 		return l1;
@@ -297,13 +337,14 @@ list mergeList(list l1, list l2) {
 
 	if (compare_studenti(head(l1), head(l2)) <= 0) {
 
-		return cons(head(l1), mergeList(tail(l1), l2));
+		l1->next = mergeList(l1->next, l2);
+		return l1;
 	}
 	else {
 
-		return cons(head(l2), mergeList(l1, tail(l2)));
+		l2->next = mergeList(l1, l2->next);
+		return l2;
 	}
-
 }
 
 void splitList(list l, list* a, list* b) {
@@ -373,7 +414,7 @@ int compare_esame(Esame e1, Esame e2) {
 	return result;
 }
 
-void merge(Esame v[], int i1, int i2, int fine, Esame vuoto[]) {
+void mergeArrayEsame(Esame v[], int i1, int i2, int fine, Esame vuoto[]) {
 
 	int i = i1, j = i2, k = i1;
 
@@ -414,16 +455,16 @@ void merge(Esame v[], int i1, int i2, int fine, Esame vuoto[]) {
 
 }
 
-void mergeSort(Esame v[], int first, int last, Esame vuoto[]) {
+void mergeSortArrayEsame(Esame v[], int first, int last, Esame vuoto[]) {
 
 	int mid;
 
 	if (first < last) {
 
 		mid = (last + first) / 2;
-		mergeSort(v, first, mid, vuoto);
-		mergeSort(v, mid + 1, last, vuoto);
-		merge(v, first, mid + 1, last, vuoto);
+		mergeSortArrayEsame(v, first, mid, vuoto);
+		mergeSortArrayEsame(v, mid + 1, last, vuoto);
+		mergeArrayEsame(v, first, mid + 1, last, vuoto);
 	}
 }
 
@@ -437,7 +478,7 @@ void ordina_esami(Esame* esami, int dim) {
 		return;
 	}
 
-	mergeSort(esami, 0, dim - 1, vuoto);
+	mergeSortArrayEsame(esami, 0, dim - 1, vuoto);
 	free(vuoto);
 }
 
@@ -445,58 +486,225 @@ void ordina_esami(Esame* esami, int dim) {
 
 StatCorso* statistiche_corsi(Esame* esami, int dim, int* dimStat) {
 
-	StatCorso* s;
+	StatCorso* s, *temp;
 	int i, j, k = 0, somma;
 	Bool stop;
 
 	(*dimStat) = 0;
 
-	for (i = 0; i < dim; i++) {
-
-		stop = false;
-
-		for (j = i + 1; j < dim && !stop; j++) {
-
-			if (strcmp(esami[i].corso, esami[j].corso)) {
-
-				stop = 1;
-			}
-		}
-
-		(*dimStat)++;
-		i = j - 1;
-	}
-
-	if ((s = (StatCorso*)malloc(sizeof(StatCorso) * (*dimStat))) == NULL) {
+	if ((temp = (StatCorso*)malloc(sizeof(StatCorso) * (dim))) == NULL) {
 
 		printf("Allocation Error!\n");
 		return NULL;
 	}
 
-	for (i = 0; k < (*dimStat) && i < dim; i++) {
+	for (i = 0; i < dim; i++) {
 
 		stop = false;
-		s[k].iscritti = 1;
+		temp[k].iscritti = 1;
 		somma = esami[i].voto;
 
 		for (j = i + 1; j < dim && !stop; j++) {
 
-			if (strcmp(esami[i].corso, esami[j].corso)) {
+			if (!strcmp(esami[i].corso, esami[j].corso)) {
 
-				stop = 1;
+				somma = somma + esami[j].voto;
+				(temp[k].iscritti)++;
 			}
 			else {
 
-				somma = somma + esami[j].voto;
-				(s[k].iscritti)++;
+				stop = true;
 			}
 		}
 
-		strcpy_s(s[k].corso, MAX_CHAR_CORSO, esami[i].corso);
-		s[k].media = ((float)somma) / (s[k].iscritti);
+		strcpy_s(temp[k].corso, MAX_CHAR_CORSO, esami[i].corso);
+		temp[k].media = ((float)somma) / (temp[k].iscritti);
 		k++;
-		i = j - 2;
+
+		if (!stop) {
+
+			i = j - 1;
+		}
+		else {
+
+			i = j - 2;
+		}
 	}
 
+	(*dimStat) = k;
+
+	if ((s = (StatCorso*)malloc(sizeof(StatCorso) * (*dimStat))) == NULL) {
+
+		printf("Allocation Error!\n");
+		free(temp);
+		return NULL;
+	}
+
+	for (i = 0; i < k; i++) {
+
+		s[i] = temp[i];
+	}
+
+	free(temp);
 	return s;
+}
+
+void printArrayStatCorsi(StatCorso v[], int dimLogica) {
+
+	int i;
+
+	printf("\n------------------------------------------------------------------------------------------\n");
+	printf("%-50s | %-15s | %-8s\n", "Course", "Average Mark", "Registered");
+	printf("------------------------------------------------------------------------------------------\n");
+
+	for (i = 0; i < dimLogica; i++) {
+
+		printf("%-50s | %-15.2f | %-8d\n", v[i].corso, v[i].media, v[i].iscritti);
+	}
+
+	printf("------------------------------------------------------------------------------------------\n\n");
+}
+
+// ============ Ordinamento array di statistiche corsi ============
+
+int compare_corso(StatCorso s1, StatCorso s2) {
+
+	int result;
+
+	if (s1.media > s2.media) {
+
+		result = -1;
+	}
+	else {
+
+		if (s1.media < s2.media) {
+
+			result = 1;
+		}
+		else {
+
+			result = 0;
+		}
+	}
+	
+	if (result == 0) {
+
+		result = s2.iscritti - s1.iscritti;
+	}
+
+	return result;
+}
+
+void mergeArrayStats(StatCorso v[], int i1, int i2, int fine, StatCorso vuoto[]) {
+
+	int i = i1, j = i2, k = i1;
+
+	while (i <= i2 - 1 && j <= fine) {
+
+		if (compare_corso(v[i], v[j]) < 0) {
+
+			vuoto[k] = v[i];
+			i++;
+		}
+		else {
+
+			vuoto[k] = v[j];
+			j++;
+		}
+
+		k++;
+	}
+
+	while (i <= i2 - 1) {
+
+		vuoto[k] = v[i];
+		i++;
+		k++;
+	}
+
+	while (j <= fine) {
+		
+		vuoto[k] = v[j];
+		j++;
+		k++;
+	}
+
+	for (i = i1; i <= fine; i++) {
+
+		v[i] = vuoto[i];
+	}
+
+}
+
+void mergeSortArrayStats(StatCorso v[], int first, int last, StatCorso vuoto[]) {
+
+	int mid;
+
+	if (first < last) {
+
+		mid = (last + first) / 2;
+		mergeSortArrayStats(v, first, mid, vuoto);
+		mergeSortArrayStats(v, mid + 1, last, vuoto);
+		mergeArrayStats(v, first, mid + 1, last, vuoto);
+	}
+}
+
+void ordina_statistiche(StatCorso* stats, int dim) {
+
+	StatCorso* vuoto;
+
+	if ((vuoto = (StatCorso*)malloc(sizeof(StatCorso) * dim)) == NULL) {
+
+		printf("Allocation Error!\n");
+		return;
+	}
+
+	mergeSortArrayStats(stats, 0, dim - 1, vuoto);
+	free(vuoto);
+}
+
+//============ Scrittura in file binario di studenti ============
+
+void write_bin_studenti(list studenti) {
+
+	FILE* fp;
+	element e;
+
+	if (fopen_s(&fp, "students.bin", "wb") != 0) {
+
+		printf("\nError opening file \"students.bin\"\n");
+		return;
+	}
+
+	while (!empty(studenti)) {
+
+		e = head(studenti);
+		fwrite(&e, sizeof(Studente), 1, fp);
+		studenti = tail(studenti);
+	}
+
+	printf("\nData saved on binary file \"students.bin\" succefully!");
+	fclose(fp);
+}
+
+//============ Scrittura in file binario di statistiche dei corsi ============
+
+void write_bin_corsi(StatCorso* stats, int dim) {
+
+	FILE* fp;
+	int i;
+
+	if (fopen_s(&fp, "courses.bin", "wb") != 0) {
+
+		printf("\nError opening file \"courses.bin\"\n");
+		return;
+	}
+
+	for (i = 0; i < dim; i++) {
+
+		fwrite(&(stats[i]), sizeof(StatCorso), 1, fp);
+	}
+
+	printf("\nData saved on binary file \"courses.bin\" succefully!\n\n");
+	fclose(fp);
 }
