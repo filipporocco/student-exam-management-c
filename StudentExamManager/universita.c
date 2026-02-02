@@ -1,9 +1,12 @@
 #include "universita.h"
 #include <string.h>
 
-void welcome(char* file_studenti, char *file_esami) {
+void welcome(char* file_studenti, char *file_esami, char* username) {
 
 	printf("Welcome to the Student and Exam Management program!\n\n");
+
+	printf("Please enter your username (Max 32 characters, no spaces): ");
+	scanf_s("%s%*c", username, MAX_CHAR_USERNAME);
 
 	printf("Enter the name of the text file containing the students: ");
 	scanf_s("%s%*c", file_studenti, MAX_CHAR_FILE_NAME);
@@ -665,14 +668,19 @@ void ordina_statistiche(StatCorso* stats, int dim) {
 
 //============ Scrittura in file binario di studenti ============
 
-void write_bin_studenti(list studenti) {
+void write_bin_studenti(list studenti, char* username) {
 
 	FILE* fp;
 	element e;
+	char bin_fileName[MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1];
 
-	if (fopen_s(&fp, "students.bin", "wb") != 0) {
+	strcpy_s(bin_fileName, MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1, username);
+	strcat_s(bin_fileName, MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1, "_");
+	strcat_s(bin_fileName, MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1, "students.bin");
 
-		printf("\nError opening file \"students.bin\"\n");
+	if (fopen_s(&fp, bin_fileName, "wb") != 0) {
+
+		printf("\nError opening file \"%s\"\n", bin_fileName);
 		return;
 	}
 
@@ -683,20 +691,25 @@ void write_bin_studenti(list studenti) {
 		studenti = tail(studenti);
 	}
 
-	printf("\nData saved on binary file \"students.bin\" succefully!");
+	printf("\nData saved on binary file \"%s\" succefully!", bin_fileName);
 	fclose(fp);
 }
 
 //============ Scrittura in file binario di statistiche dei corsi ============
 
-void write_bin_corsi(StatCorso* stats, int dim) {
+void write_bin_corsi(StatCorso* stats, int dim, char* username) {
 
 	FILE* fp;
 	int i;
+	char bin_fileName[MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1];
 
-	if (fopen_s(&fp, "courses.bin", "wb") != 0) {
+	strcpy_s(bin_fileName, MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1, username);
+	strcat_s(bin_fileName, MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1, "_");
+	strcat_s(bin_fileName, MAX_CHAR_FILE_NAME + MAX_CHAR_USERNAME - 1, "courses.bin");
 
-		printf("\nError opening file \"courses.bin\"\n");
+	if (fopen_s(&fp, bin_fileName, "wb") != 0) {
+
+		printf("\nError opening file \"%s\"\n",  bin_fileName);
 		return;
 	}
 
@@ -705,6 +718,6 @@ void write_bin_corsi(StatCorso* stats, int dim) {
 		fwrite(&(stats[i]), sizeof(StatCorso), 1, fp);
 	}
 
-	printf("\nData saved on binary file \"courses.bin\" succefully!\n\n");
+	printf("\nData saved on binary file \"%s\" succefully!\n\n", bin_fileName);
 	fclose(fp);
 }

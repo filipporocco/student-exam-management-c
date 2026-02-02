@@ -6,9 +6,9 @@ int main() {
 	Esame* esami = NULL;
 	StatCorso* stats = NULL;
 	int dim_e = 0, dim_s = 0, n;
-	char file_studenti[MAX_CHAR_FILE_NAME] = "studenti.txt", file_esami[MAX_CHAR_FILE_NAME] = "esami.txt";
+	char file_studenti[MAX_CHAR_FILE_NAME] = "studenti.txt", file_esami[MAX_CHAR_FILE_NAME] = "esami.txt", username[MAX_CHAR_USERNAME] = "Fylo";
 
-	/*welcome(file_studenti, file_esami); */
+	/*welcome(file_studenti, file_esami, username); */
 
 	// ============ Lettura di studenti e di esami da file .txt ============
 	studenti = leggi_studenti(file_studenti);
@@ -63,10 +63,10 @@ int main() {
 				if (n == 3) {
 
 					//============ Scrittura in file binario di studenti ============
-					write_bin_studenti(studenti_aggiornati);
+					write_bin_studenti(studenti_aggiornati, username);
 
 					//============ Scrittura in file binario di statistiche dei corsi ============
-					write_bin_corsi(stats, dim_s);
+					write_bin_corsi(stats, dim_s, username);
 
 				}
 			}

@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #define MAX_CHAR_FILE_NAME 33
+#define MAX_CHAR_USERNAME 33
 
 //Studente
 #define MAX_CHAR_NOME 33

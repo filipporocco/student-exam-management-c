@@ -5,7 +5,7 @@
 
 #include "list.h"
 
-void welcome(char* file_studenti, char* file_esami);
+void welcome(char* file_studenti, char* file_esami, char* username);
 
 int readField(char buffer[], char sep, FILE* fp);
 
@@ -45,9 +45,9 @@ void mergeSortArrayStats(StatCorso v[], int first, int last, StatCorso vuoto[]);
 void ordina_statistiche(StatCorso* stats, int dim);
 
 //============ Scrittura in file binario di studenti ============
-void write_bin_studenti(list studenti);
+void write_bin_studenti(list studenti, char* username);
 
 //============ Scrittura in file binario di statistiche dei corsi ============
-void write_bin_corsi(StatCorso* stats, int dim);
+void write_bin_corsi(StatCorso* stats, int dim, char* username);
 
 #endif
