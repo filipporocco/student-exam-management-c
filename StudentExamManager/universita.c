@@ -137,14 +137,14 @@ void showListStudenti(list l) {
 	element el;
 
 	printf("\n----------------------------------------------------------------------------------------------------------\n");
-	printf("%-5s | %-32s | %-32s | %-5s | %-5s\n", "ID", "Name", "Surname", "CFU", "Weighted average");
+	printf("%-8s | %-32s | %-32s | %-5s | %-5s\n", "ID", "Name", "Surname", "CFU", "Weighted average");
 	printf("----------------------------------------------------------------------------------------------------------\n");
 
 	while (!empty(l)) {
 
 		el = head(l);
 
-		printf("%-5d | %-32s | %-32s | %-5d | %-5.2f\n", el.matricola, el.nome, el.cognome, el.cfu, el.media);
+		printf("%-8d | %-32s | %-32s | %-5d | %-5.2f\n", el.matricola, el.nome, el.cognome, el.cfu, el.media);
 		l = tail(l);
 
 		cont++;
