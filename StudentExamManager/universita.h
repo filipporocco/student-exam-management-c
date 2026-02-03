@@ -7,7 +7,7 @@
 
 void welcome(char* file_studenti, char* file_esami, char* username);
 
-int readField(char buffer[], char sep, FILE* fp);
+int readField(char buffer[], int size, char sep, FILE* fp);
 
 // ============ Lettura di studenti da file .txt ============
 Studente leggi_uno_studente(FILE* fp);

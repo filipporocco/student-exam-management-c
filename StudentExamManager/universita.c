@@ -16,12 +16,12 @@ void welcome(char* file_studenti, char *file_esami, char* username) {
 	printf("\n\n");
 }
 
-int readField(char buffer[], char sep, FILE* fp) {
+int readField(char buffer[], int size, char sep, FILE* fp) {
 
 	int i = 0;
 	char ch = fgetc(fp);
 
-	while (ch != sep && ch != '\0' && ch != EOF && ch != '\n') {
+	while (ch != sep && ch != '\0' && ch != EOF && ch != '\n' && i < (size - 1)) {
 
 		buffer[i] = ch;
 		i++;
@@ -41,9 +41,9 @@ Studente leggi_uno_studente(FILE* fp) {
 
 	if ((r = fscanf_s(fp, "%d", &(s.matricola))) == 1) {
 
-		if ((r = readField(s.nome, '@', fp)) == '@') {
+		if ((r = readField(s.nome, MAX_CHAR_NOME, '@', fp)) == '@') {
 
-			if ((r = readField(s.cognome, '@', fp)) == '@') {
+			if ((r = readField(s.cognome, MAX_CHAR_COGNOME, '@', fp)) == '@') {
 
 				if ((r = fscanf_s(fp, "%d %f", &(s.cfu), &(s.media))) != 2) {
 
@@ -167,7 +167,7 @@ Esame leggi_un_esame(FILE* fp) {
 	Esame e;
 	int r;
 
-	if ((r = readField(e.corso, '@', fp)) == '@') {
+	if ((r = readField(e.corso, MAX_CHAR_CORSO, '@', fp)) == '@') {
 
 		if ((r = fscanf_s(fp, "%d %d %d\n", &(e.voto), &(e.studente), &(e.cfu))) != 3) {
 
