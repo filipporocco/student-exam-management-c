@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-asdasdasd
-=======
 # 🎓 Student & Exam Management System (C Project)
 
 This project is written in **C** and simulates a simple university management system for:
