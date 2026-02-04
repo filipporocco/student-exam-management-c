@@ -57,8 +57,9 @@ esami.txt
 👨‍🎓 Students file (studenti.txt)
 
 each line:
+```txt
 <studentID> <name>@<surname>@<CFU> <weighted average>
-
+```
 Examples:
 ```txt
 1001 Filippo@Rocco@18 27.5
@@ -69,8 +70,9 @@ Examples:
 📚 Exams file (esami.txt)
 
 each line:
+```txt
 <course>@<grade> <studentID> <university training credits>
-
+```
 Examples:
 ```txt
 Analisi Matematica T-1@23 1001 9
