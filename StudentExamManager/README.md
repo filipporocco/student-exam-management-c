@@ -18,7 +18,7 @@ The program reads data from text files, updates students’ records based on com
 ✅ Update CFU and weighted average  
 ✅ Student sorting using **Merge Sort on linked lists**  
 ✅ Course statistics calculation  
-✅ Course statistics sorting using **Merge Sort on array**
+✅ Course statistics sorting using **Merge Sort on arrays**  
 ✅ Binary file export  
 ✅ Table-style formatted output  
 ✅ Manual memory management  
@@ -39,15 +39,15 @@ The program reads data from text files, updates students’ records based on com
 
 The program asks for:
 
-1. Username
+1. Username  
 2. Students file name  
 3. Exams file name  
 
 Example:
 
-filippo
-studenti.txt
-esami.txt
+filippo  
+studenti.txt  
+esami.txt  
 
 
 ---
@@ -57,24 +57,26 @@ esami.txt
 👨‍🎓 Students file (studenti.txt)
 
 each line:
-<studentID> <name>@<surname>@<total university training credits> <wighted average>
+<studentID> <name>@<surname>@<CFU> <weighted average>
 
 Examples:
+```txt
 1001 Filippo@Rocco@18 27.5
-1005 Anna Maria@Ferrari@84 28.10
+1005 Anna@Ferrari@84 28.10
 1010 Chiara@De Angelis@60 26.10
+```
 
 📚 Exams file (esami.txt)
 
 each line:
-<course>@<studentID> <university training credits> <grade>
+<course>@<grade> <studentID> <university training credits>
 
 Examples:
-
+```txt
 Analisi Matematica T-1@23 1001 9
 Fondamenti di Informatica T@30 1001 12
 Geometria e Algebra T@27 1001 6
-
+```
 ⚠️ Invalid or corrupted rows are automatically discarded.
 
 ---
@@ -104,12 +106,15 @@ They contain:
 
 ## ▶ How to Run
 
-1. Clone the repository:
+1. Clone the repository: 
+```bash
 git clone <repository-url>
+```
+ 
 
 2. Open the solution in Visual Studio
 
-3. (Optional) Add your own text files (containig exams and students) inside the project folder:
+3. (Optional) Add your own text files (containing exams and students) inside the project folder:
 /StudentExamSystem/
 
 4. Build and run
@@ -120,8 +125,8 @@ git clone <repository-url>
 
 Students are sorted by:
 
-1. Average grade (descending)
-2. Total University Training Credits (descending)
+1. Weighted average (descending)
+2. CFU (descending)
 3. Last name (alphabetical)
 4. First name (alphabetical)
 
@@ -129,14 +134,14 @@ Implemented using **Merge Sort on linked lists**.
 
 ---
 
-## 📊 Course statistics Sorting Criteria
+## 📊 Course Statistics Sorting Criteria
 
 Course statistics are sorted by:
 
 1. Average grade (descending)
-2. Registered (descending)
+2. Number of students (descending)
 
-Implemented using **Merge Sort on array**.
+Implemented using **Merge Sort on arrays**.
 
 ---
 
