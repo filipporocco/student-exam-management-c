@@ -1,4 +1,4 @@
-# ?? Student & Exam Management System (C Project)
+﻿# 🎓 Student & Exam Management System (C Project)
 
 This project is written in **C** and simulates a simple university management system for:
 
@@ -6,25 +6,26 @@ This project is written in **C** and simulates a simple university management sy
 - exams  
 - course statistics  
 
-The program reads data from text files, updates students� records based on completed exams, sorts the results, and saves the final output into binary files.
+The program reads data from text files, updates students’ records based on completed exams, sorts the results, and saves the final output into binary files.
 
 ---
 
-## ?? Main Features
+## 🚀 Main Features
 
-? Read students from text file  
-? Read exams from text file  
-? Dynamic memory allocation  
-? Update CFU and weighted average  
-? Student sorting using **Merge Sort on linked lists**  
-? Course statistics calculation  
-? Binary file export  
-? Table-style formatted output  
-? Manual memory management  
+✅ Read students from text file  
+✅ Read exams from text file  
+✅ Dynamic memory allocation  
+✅ Update CFU and weighted average  
+✅ Student sorting using **Merge Sort on linked lists**  
+✅ Course statistics calculation  
+✅ Course statistics sorting using **Merge Sort on array**
+✅ Binary file export  
+✅ Table-style formatted output  
+✅ Manual memory management  
 
 ---
 
-## ?? Data Structures
+## 🧠 Data Structures
 
 - `Studente`
 - `Esame`
@@ -34,24 +35,51 @@ The program reads data from text files, updates students� records based on compl
 
 ---
 
-## ?? Input
+## 📂 Input
 
 The program asks for:
 
-1. Students file name  
-2. Exams file name  
-3. Username  
+1. Username
+2. Students file name  
+3. Exams file name  
 
 Example:
 
+filippo
 studenti.txt
 esami.txt
-filippo
 
 
 ---
 
-## ?? Output
+## 📂 Input File Formats
+
+👨‍🎓 Students file (studenti.txt)
+
+each line:
+<studentID> <name>@<surname>@<total university training credits> <wighted average>
+
+Examples:
+1001 Filippo@Rocco@18 27.5
+1005 Anna Maria@Ferrari@84 28.10
+1010 Chiara@De Angelis@60 26.10
+
+📚 Exams file (esami.txt)
+
+each line:
+<course>@<studentID> <university training credits> <grade>
+
+Examples:
+
+Analisi Matematica T-1@23 1001 9
+Fondamenti di Informatica T@30 1001 12
+Geometria e Algebra T@27 1001 6
+
+⚠️ Invalid or corrupted rows are automatically discarded.
+
+---
+
+## 📦 Output
 
 Two binary files are automatically generated:
 
@@ -61,11 +89,11 @@ Two binary files are automatically generated:
 They contain:
 
 - updated and sorted students
-- course statistics
+- sorted course statistics
 
 ---
 
-## ?? Technologies
+## 🛠 Technologies
 
 - Language: **C**
 - IDE: Visual Studio
@@ -74,25 +102,26 @@ They contain:
 
 ---
 
-## ? How to Run
+## ▶ How to Run
 
 1. Clone the repository:
-
 git clone <repository-url>
 
+2. Open the solution in Visual Studio
 
-2. Open the project in Visual Studio
+3. (Optional) Add your own text files (containig exams and students) inside the project folder:
+/StudentExamSystem/
 
-3. Build and run
+4. Build and run
 
 ---
 
-## ?? Student Sorting Criteria
+## 📊 Student Sorting Criteria
 
 Students are sorted by:
 
 1. Average grade (descending)
-2. CFU (descending)
+2. Total University Training Credits (descending)
 3. Last name (alphabetical)
 4. First name (alphabetical)
 
@@ -100,14 +129,25 @@ Implemented using **Merge Sort on linked lists**.
 
 ---
 
-## ????? Author
+## 📊 Course statistics Sorting Criteria
+
+Course statistics are sorted by:
+
+1. Average grade (descending)
+2. Registered (descending)
+
+Implemented using **Merge Sort on array**.
+
+---
+
+## 🧑‍💻 Author
 
 Filippo Rocco  
 Computer Engineering Student  
 
 ---
 
-## ?? Notes
+## 📌 Notes
 
 This project was developed for educational purposes to practice:
 
@@ -119,7 +159,7 @@ This project was developed for educational purposes to practice:
 
 ---
 
-## ?? Future Improvements
+## 🌱 Future Improvements
 
 - GUI
 - Student search
@@ -129,4 +169,4 @@ This project was developed for educational purposes to practice:
 
 ---
 
-? If you find this useful, feel free to star the repository!
+⭐ If you find this useful, feel free to star the repository!

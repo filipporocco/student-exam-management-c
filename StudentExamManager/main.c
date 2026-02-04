@@ -75,9 +75,16 @@ int main() {
 
 		//Liberazione memoria
 		free(esami);
-		free(stats);
 		freelist(studenti);
-		freelist(studenti_aggiornati);
+
+		if (stats != NULL) {
+
+			free(stats);
+		}
+		if (!empty(studenti_aggiornati)) {
+
+			freelist(studenti_aggiornati);
+		}
 	}
 
 	return 0;
