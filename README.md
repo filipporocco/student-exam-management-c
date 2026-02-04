@@ -117,9 +117,10 @@ git clone <repository-url>
 2. Open the solution in Visual Studio
 
 3. (Optional) Add your own text files (containing exams and students) inside the project folder:
+```bash
 /StudentExamSystem/
-
-4. Build and run
+```
+5. Build and run
 
 ---
 
