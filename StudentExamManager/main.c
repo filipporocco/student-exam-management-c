@@ -14,9 +14,9 @@ int main() {
 	studenti = leggi_studenti(file_studenti);
 	esami = leggi_esami(file_esami, &dim_e);
 
-	if (studenti == emptyList() || esami == NULL) {
+	if (empty(studenti) || esami == NULL) {
 
-		if (studenti != emptyList()) {
+		if (!empty(studenti)) {
 
 			freelist(studenti);
 		}
