@@ -120,7 +120,7 @@ git clone <repository-url>
 ```bash
 /StudentExamSystem/
 ```
-5. Build and run
+4. Build and run
 
 ---
 
