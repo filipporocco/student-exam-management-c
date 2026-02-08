@@ -54,6 +54,7 @@ int main() {
 			else {
 
 				if (n == 1) {
+
 					showListStudenti(studenti_aggiornati);
 				}
 				if (n == 2) {

@@ -39,7 +39,7 @@ Studente leggi_uno_studente(FILE* fp) {
 	Studente s;
 	int r, i = 0;
 
-	if ((r = fscanf_s(fp, "%d", &(s.matricola))) == 1) {
+	if ((r = fscanf_s(fp, "%d ", &(s.matricola))) == 1) {
 
 		if ((r = readField(s.nome, MAX_CHAR_NOME, '@', fp)) == '@') {
 
