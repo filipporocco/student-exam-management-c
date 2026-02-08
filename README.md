@@ -113,16 +113,18 @@ They contain:
 git clone https://github.com/<your-username>/<repository-name>.git
 ```
 
-2. Open the project in Visual Studio:
-
-open the .sln file located in the root of the repository
+2. Open the project in Visual Studio: open the .sln file located in the root of the repository
 
 3. (Optional) Place your input text files containing students and exams in the program working directory.
-
-(by default ```\StudentExamManager\StudentExamManager```)
-⚠️ The input files must follow the formats described in the section "Input File Formats".
+- (by default \StudentExamManager\StudentExamManager)
+- ⚠️ The input files must follow the formats described in the section "Input File Formats".
 
 4. Build and run the project from Visual Studio
+
+5. When prompted enter:
+- username
+- students file name (you may use `studenti.txt` if you did not provide a custom file)
+- exams file name (you may use `esami.txt` if you did not provide a custom file)
 
 ---
 
@@ -180,4 +182,3 @@ This project was developed for educational purposes to practice:
 ---
 
 ⭐ If you find this useful, feel free to star the repository!
->>>>>>> 976d124c37014e1bd8e03a8dc30e4ae2b0477d80
