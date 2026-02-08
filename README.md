@@ -108,19 +108,19 @@ They contain:
 
 ## ▶ How to Run
 
-1. Clone the repository: 
+1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/<your-username>/<repository-name>.git
 ```
- 
 
-2. Open the solution in Visual Studio
+2. Open the project in Visual Studio:
+open the .sln file located in the root of the repository
 
-3. (Optional) Add your own text files (containing exams and students) inside the project folder:
-```bash
-/StudentExamSystem/
-```
-4. Build and run
+3. (Optional) Place your input text files containing students and exams in the program working directory.
+(by default \StudentExamManager\StudentExamManager)
+⚠️ The input files must follow the formats described in the section "Input File Formats".
+
+4. Build and run the project from Visual Studio
 
 ---
 
